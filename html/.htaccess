@@ -1,0 +1,28 @@
+# mod_rewrite required
+<IfModule mod_rewrite.c>
+    # Enable RewriteEngine
+    RewriteEngine on
+
+    # Admin Console
+    # RewriteRule ^/_admin$ /controller/main.php [END]
+
+    # favicon.ico
+    RewriteRule ^favicon.ico$ /assets/main.php?name=favicon.ico [END]
+
+    # Assets
+    RewriteRule ^assets(.*) /assets/$1 [END]
+
+    # Files
+    RewriteRule ^file--deliver/(.*) /php/FileDeliver.php?id=$1 [END]
+
+    # POST
+    # File Upload
+    RewriteRule ^post--connect/(.*) /php/post/$1.php [END]
+
+    # Send the others accesses to the mainController
+    RewriteRule ^.*$ /controller/main.php [END]
+</IfModule>
+
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+

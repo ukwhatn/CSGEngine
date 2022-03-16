@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "M PLUS 1", sans-serif;
+}

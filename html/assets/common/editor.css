@@ -1,0 +1,42 @@
+main {
+    margin: 1rem;
+}
+
+.editor-wrap {
+    width: 100%;
+    max-width: 100vw;
+}
+
+.editor-wrap .section-wrap .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.editor-wrap .section-wrap .section-content .textarea-wrap {
+    flex: 1 1 30%;
+    min-width: 500px;
+    margin: 0.25rem;
+    font-size: 0.75rem;
+    position:relative;
+}
+
+.editor-wrap .section-wrap .section-content .textarea-wrap .section-label {
+    position: absolute;
+    top:0;
+    left:0;
+    background: var(--oc-gray-3);
+    padding: 0 0.25rem;
+    border-radius: 0.25em;
+}
+
+.editor-wrap .section-wrap .section-content .textarea-wrap textarea.input-area {
+    display: block;
+    font-family: monospace;
+    padding-top: 1.25rem;
+}
+
+.editor-wrap .action-wrap .btn-group {
+    display: flex;
+    margin: 0 0 0 auto;
+}
