@@ -21,15 +21,14 @@ class DB
      * @throws InitialConnectException
      */
     function __construct(
-        string $host = "host.docker.internal",
-        int    $port = 51211,
+        string $host = "db",
         string $username = "application",
         string $password = "applicationpassword",
         string $schema = "Master")
     {
         try {
             $this->connection = new PDO(
-                "mysql:dbname=" . $schema . ";host=" . $host . ";port=" . $port,
+                "mysql:dbname=" . $schema . ";host=" . $host,
                 $username, $password);
         } catch (PDOException $e) {
             throw new InitialConnectException($e);

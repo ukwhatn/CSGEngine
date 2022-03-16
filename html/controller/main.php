@@ -46,6 +46,7 @@ try {
 } catch (InitialConnectException $e) {
     # PDO接続に失敗したら500を返して終わる
     http_response_code(500);
+    functions::errorLog($e);
     echo $blade->run("response_code.500", ["code" => "init_db_error"]);
     exit;
 }
