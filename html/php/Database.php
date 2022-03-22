@@ -135,7 +135,7 @@ class DB
         $result = [];
         foreach ($rows as $row) {
             $result[$row["element_id"]] = new PageElement(
-                $this, $metadata, $row["id"], $row["element_id"], $row["created_by_id"], $row["created_at"], $row["source"]);
+                $metadata, $row["id"], $row["element_id"], $row["created_by_id"], $row["created_at"], $row["source"]);
         }
         return $result;
     }
@@ -153,7 +153,7 @@ class DB
             return null;
         }
         return new PageElement(
-            $this, $metadata, $row["id"], $row["element_id"], $row["created_by_id"], $row["created_at"], $row["source"]);
+            $metadata, $row["id"], $row["element_id"], $row["created_by_id"], $row["created_at"], $row["source"]);
     }
 
     public function getFiles(): ?array

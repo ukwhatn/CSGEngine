@@ -100,21 +100,31 @@ class PageElement
      * @param string $createdAt
      * @param string $source
      */
-    public function __construct(DB $DB, PageMetadata $metadata, int $id, string $elementID, int $createdByID, string $createdAt, string $source)
+    public function __construct(PageMetadata $metadata, int $id, string $elementID, int $createdByID, string $createdAt, string $source)
     {
         $this->metadata = $metadata;
         $this->id = $id;
         $this->elementID = $elementID;
         $this->createdByID = $createdByID;
         $this->createdAt = DateTime::createFromFormat('Y-m-d H:i:s', $createdAt);
+        $this->source = $source;
+    }
 
+    public function getCreatedTimeString(): string
+    {
+        return $this->createdAt->format('Y/m/d H:i:s');
+    }
+
+    public function parseSource(DB $DB)
+    {
         /* Source parse */
+        $source = $this->source;
         if (preg_match_all("/\[\[inherit\s(.+?)\s(.+?)\]\]/u", $source, $inheritMatches, PREG_SET_ORDER)) {
             foreach ($inheritMatches as $num => $data) {
                 $allString = $data[0];
                 $path = $data[1];
                 $elementID = $data[2];
-                $targetPage = $DB->getPageMasterData($metadata->page->site, $path);
+                $targetPage = $DB->getPageMasterData($this->metadata->page->site, $path);
                 if ($targetPage === null) {
                     continue;
                 }
@@ -130,11 +140,6 @@ class PageElement
             }
         }
         $this->source = $source;
-    }
-
-    public function getCreatedTimeString(): string
-    {
-        return $this->createdAt->format('Y/m/d H:i:s');
     }
 
 }

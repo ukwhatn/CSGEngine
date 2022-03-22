@@ -45,7 +45,7 @@
                               data-id="title">@if($metadata !== null){{$metadata->title}}@endif</textarea>
                 </div>
                 <div class="textarea-wrap">
-                    <span class="section-label">Page Metas</span>
+                    <span class="section-label">Page Metas(head)</span>
                     <textarea class="form-control input-area" rows="3"
                               data-id="head">@if($elements !== null && array_key_exists("head", $elements)){{$elements["head"]->source}}@endif</textarea>
                 </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="section-content">
                 <div class="textarea-wrap">
-                    <span class="section-label">Per-Page StyleSheets</span>
+                    <span class="section-label">Per-Page StyleSheets(stylesheets)</span>
                     <textarea class="form-control input-area" rows="5"
                               data-id="stylesheets">@if($elements !== null && array_key_exists("stylesheets", $elements)){{$elements["stylesheets"]->source}}@endif</textarea>
                 </div>
@@ -87,12 +87,12 @@
             </div>
             <div class="section-content">
                 <div class="textarea-wrap">
-                    <span class="section-label">head scripts</span>
+                    <span class="section-label">head scripts(head_scripts)</span>
                     <textarea class="form-control input-area" rows="5"
                               data-id="head_scripts">@if($elements !== null && array_key_exists("head_scripts", $elements)){{$elements["head_scripts"]->source}}@endif</textarea>
                 </div>
                 <div class="textarea-wrap">
-                    <span class="section-label">footer scripts</span>
+                    <span class="section-label">footer scripts(footer_scripts)</span>
                     <textarea class="form-control input-area" rows="5"
                               data-id="footer_scripts">@if($elements !== null && array_key_exists("footer_scripts", $elements)){{$elements["footer_scripts"]->source}}@endif</textarea>
                 </div>
@@ -104,17 +104,17 @@
             </div>
             <div class="section-content">
                 <div class="textarea-wrap">
-                    <span class="section-label">header</span>
+                    <span class="section-label">header(header)</span>
                     <textarea class="form-control input-area" rows="5"
                               data-id="header">@if($elements !== null && array_key_exists("header", $elements)){{$elements["header"]->source}}@endif</textarea>
                 </div>
                 <div class="textarea-wrap">
-                    <span class="section-label">footer</span>
+                    <span class="section-label">footer(footer)</span>
                     <textarea class="form-control input-area" rows="5"
                               data-id="footer">@if($elements !== null && array_key_exists("footer", $elements)){{$elements["footer"]->source}}@endif</textarea>
                 </div>
                 <div class="textarea-wrap">
-                    <span class="section-label">main-content</span>
+                    <span class="section-label">main-content(main_content)</span>
                     <textarea class="form-control input-area" rows="5"
                               data-id="main_content">@if($elements !== null && array_key_exists("main_content", $elements)){{$elements["main_content"]->source}}@endif</textarea>
                 </div>

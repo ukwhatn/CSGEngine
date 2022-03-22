@@ -198,6 +198,11 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
                 exit;
             }
 
+            // ページソースをパース
+            foreach ($elements as $element) {
+                $element->parseSource($DB);
+            }
+
             // OGPオブジェクト作成
             $ogpDataObject = new OGP(
                 $siteDataObject->name,
