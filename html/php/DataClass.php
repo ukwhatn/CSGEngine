@@ -100,13 +100,35 @@ class PageElement
      * @param string $createdAt
      * @param string $source
      */
-    public function __construct(PageMetadata $metadata, int $id, string $elementID, int $createdByID, string $createdAt, string $source)
+    public function __construct(DB $DB, PageMetadata $metadata, int $id, string $elementID, int $createdByID, string $createdAt, string $source)
     {
         $this->metadata = $metadata;
         $this->id = $id;
         $this->elementID = $elementID;
         $this->createdByID = $createdByID;
         $this->createdAt = DateTime::createFromFormat('Y-m-d H:i:s', $createdAt);
+
+        /* Source parse */
+        if (preg_match_all("/\[\[inherit\s(.+?)\s(.+?)\]\]/u", $source, $inheritMatches, PREG_SET_ORDER)) {
+            foreach ($inheritMatches as $num => $data) {
+                $allString = $data[0];
+                $path = $data[1];
+                $elementID = $data[2];
+                $targetPage = $DB->getPageMasterData($metadata->page->site, $path);
+                if ($targetPage === null) {
+                    continue;
+                }
+                $targetMetadata = $DB->getPageMetadata($targetPage);
+                if ($targetMetadata === null) {
+                    continue;
+                }
+                $targetElement = $DB->getPageElement($targetMetadata, $elementID);
+                if ($targetElement === null) {
+                    continue;
+                }
+                $source = str_replace($allString, $targetElement->source, $source);
+            }
+        }
         $this->source = $source;
     }
 

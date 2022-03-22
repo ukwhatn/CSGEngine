@@ -135,9 +135,25 @@ class DB
         $result = [];
         foreach ($rows as $row) {
             $result[$row["element_id"]] = new PageElement(
-                $metadata, $row["id"], $row["element_id"], $row["created_by_id"], $row["created_at"], $row["source"]);
+                $this, $metadata, $row["id"], $row["element_id"], $row["created_by_id"], $row["created_at"], $row["source"]);
         }
         return $result;
+    }
+
+    public function getPageElement(PageMetadata $metadata, string $element_id): ?PageElement
+    {
+        $sql = "SELECT * FROM Master.page_element WHERE page_id = :page_id AND metadata_id = :metadata_id AND element_id = :element_id";
+        $prepare = $this->connection->prepare($sql);
+        $prepare->bindValue(":page_id", $metadata->page->id);
+        $prepare->bindValue(":metadata_id", $metadata->id);
+        $prepare->bindValue(":element_id", $element_id);
+        $prepare->execute();
+        $row = $prepare->fetch(PDO::FETCH_ASSOC);
+        if ($row === false) {
+            return null;
+        }
+        return new PageElement(
+            $this, $metadata, $row["id"], $row["element_id"], $row["created_by_id"], $row["created_at"], $row["source"]);
     }
 
     public function getFiles(): ?array
