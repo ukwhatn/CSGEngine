@@ -119,8 +119,8 @@ class PageElement
     {
         /* Source parse */
         $source = $this->source;
-        if (preg_match_all("/\[\[inherit\s(.+?)\s(.+?)\]\]/u", $source, $inheritMatches, PREG_SET_ORDER)) {
-            foreach ($inheritMatches as $num => $data) {
+        if (preg_match_all("/\[\[include\s(.+?)\s(.+?)\]\]/u", $source, $includeMatches, PREG_SET_ORDER)) {
+            foreach ($includeMatches as $num => $data) {
                 $allString = $data[0];
                 $path = $data[1];
                 $elementID = $data[2];
