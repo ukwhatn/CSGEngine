@@ -12,6 +12,7 @@ services:
       - "127.0.0.1:51210:80"
     networks:
       - nw_csgengine
+    restart: always
   db:
     image: mariadb:10.7.1
     volumes:
