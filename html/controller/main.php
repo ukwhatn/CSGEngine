@@ -198,6 +198,14 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
                 exit;
             }
 
+            // 権限
+            if (($engineUser === null && $page->permission > 0) || ($engineUser !== null && $engineUser->permission < $page->permission)) {
+                http_response_code(403);
+                echo $blade->run("response_code.403", [
+                    "site" => $siteDataObject, "user" => $engineUser, "discordOAuth2" => $discordOAuth2]);
+                exit;
+            }
+
             // ページソースをパース
             foreach ($elements as $element) {
                 $element->parseSource($DB);
