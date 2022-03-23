@@ -37,11 +37,11 @@
     </style>
 </head>
 <body id="html-body">
-<div id="swup"  class="transition-fade">
+<div id="swup">
     <header id="header">
         @yield("header")
     </header>
-    <main id="main">
+    <main id="main" class="transition-fade">
         @yield("mainContent")
     </main>
     <footer id="footer">
