@@ -44,13 +44,9 @@
             }
         }
         let res = fetch_core("FileUpload", formData).then(response => {
-            let status = response[0];
-            if (status === 200) {
-                let response_body = response[1];
-                if (response_body["status"] && response_body["status"] === "success") {
-                    if (response_body["html"]) {
-                        document.getElementById("files-list-container").innerHTML = response_body["html"];
-                    }
+            if (response["status"] && response["status"] === "success") {
+                if (response["html"]) {
+                    document.getElementById("files-list-container").innerHTML = response["html"];
                 }
             }
         });

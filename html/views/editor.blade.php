@@ -150,10 +150,6 @@
                 formData.append(dataID, value);
             }
             fetch_core("EditSubmit", formData).then(response => {
-                if (response[0] === 200) {
-                    return response[1];
-                }
-            }).then(response => {
                 if (response["status"] && response["status"] === "success") {
                     window.location.href = response["goto"];
                 }

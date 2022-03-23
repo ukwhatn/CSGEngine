@@ -22,8 +22,6 @@ function fetch_core(moduleName, formData) {
                     console.error(response.status + ": " + moduleName);
             }
         }
-        return [response.status, response.json()];
-    }).then(data => {
-        return data;
+        return response.json();
     });
 }
