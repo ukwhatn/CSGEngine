@@ -124,6 +124,9 @@ class PageElement
                 $allString = $data[0];
                 $path = $data[1];
                 $elementID = $data[2];
+                if ($elementID === "this"){
+                    $elementID = $this->elementID;
+                }
                 $targetPage = $DB->getPageMasterData($this->metadata->page->site, $path);
                 if ($targetPage === null) {
                     continue;
