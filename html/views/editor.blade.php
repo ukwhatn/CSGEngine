@@ -1,6 +1,6 @@
 @extends("base")
 
-@section("pageTitle")編集@endsection
+@section("pageTitle")編集 |@endsection
 
 @section("siteName"){{$site->name}}@endsection
 

@@ -1,6 +1,6 @@
 @extends("base")
 
-@section("pageTitle") Not Found @endsection
+@section("pageTitle") Not Found |@endsection
 
 @section("siteName") {{$site->name}} @endsection
 

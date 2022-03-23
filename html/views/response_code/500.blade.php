@@ -1,6 +1,6 @@
 @extends("base")
 
-@section("pageTitle") Internal Server Error @endsection
+@section("pageTitle") Internal Server Error |@endsection
 
 @section("siteName") CSGEngine @endsection
 

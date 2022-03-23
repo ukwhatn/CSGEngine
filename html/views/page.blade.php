@@ -18,7 +18,9 @@
     <meta name="twitter:card" content="{{$ogp->twCardType}}"/>
 @endsection
 
-@section("pageTitle"){{$metadata->title}}@endsection
+@if($metadata->title !== "")
+    @section("pageTitle"){{$metadata->title}} |@endsection
+@endif
 
 @section("siteName"){{$metadata->page->site->name}}@endsection
 

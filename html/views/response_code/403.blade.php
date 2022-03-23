@@ -1,6 +1,6 @@
 @extends("base")
 
-@section("pageTitle") Forbidden @endsection
+@section("pageTitle") Forbidden |@endsection
 
 @section("siteName") {{$site->name}} @endsection
 

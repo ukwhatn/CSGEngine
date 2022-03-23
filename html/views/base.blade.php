@@ -6,7 +6,7 @@
 
     @yield("additionalHeadContent")
 
-    <title>@yield("pageTitle") | @yield("siteName")</title>
+    <title>@yield("pageTitle") @yield("siteName")</title>
 
 
     @yield("siteInformation")
