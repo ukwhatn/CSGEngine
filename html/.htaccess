@@ -7,7 +7,7 @@
     # RewriteRule ^/_admin$ /controller/main.php [END]
 
     # favicon.ico
-    RewriteRule ^favicon.ico$ /assets/main.php?name=favicon.ico [END]
+    RewriteRule ^favicon.ico$ /php/FileDeliver.php?id=0 [END]
 
     # Assets
     RewriteRule ^assets(.*) /assets/$1 [END]
