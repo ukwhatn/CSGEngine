@@ -41,7 +41,7 @@
     <header id="header">
         @yield("header")
     </header>
-    <main class="main">
+    <main id="main">
         @yield("mainContent")
     </main>
     <footer id="footer">
