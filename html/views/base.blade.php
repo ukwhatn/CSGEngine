@@ -70,7 +70,7 @@
     <script>
         const swup = new Swup({
             plugins: [
-                new SwupProgressPlugin(),
+                /*new SwupProgressPlugin(),*/
                 new SwupHeadPlugin()
             ],
             containers: ["#swup", "#scripts"]
