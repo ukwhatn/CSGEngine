@@ -7,7 +7,7 @@
     <meta property="og:title" content="{{$ogp->pageTitle}}"/>
     <meta property="og:locale" content="ja_JP"/>
     @if($ogp->pageDescription !== null)
-        <meta name="description" content="{{$ogp->description}}"/>
+        <meta name="description" content="{{$ogp->pageDescription}}"/>
         <meta property="og:description" content="{{$ogp->pageDescription}}"/>
         <meta name="twitter:description" content="{{$ogp->pageDescription}}"/>
     @endif
